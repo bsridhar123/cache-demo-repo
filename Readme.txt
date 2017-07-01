@@ -19,6 +19,23 @@ This repository consists of the below projects/folders.
 	
 	-Each of these properties are used by "/getQuotes" and "/getBooks" API Endpoints of the service to store
 	 in their respective caches.
+	 
+	 
+	 Instead of using the caching-component library to add caching behaviour we can also the dependencies explicitly
+	 to the pom.xml and uncomment the caching-component library dependency in "cachedemo-service".
+	 
+	 The MyCustomCacheConfig.java in src/main/java/com/demo/main package has the same logic which has been made part of
+	 the shared/library.
+	 
+	 It is with the profile "local".
+	 
+	 To run with profile local, we need to add dependenceis as required and remove the dependency on shared library.
+	 
+	 Currently, when using shared library the caching behaviour does not work, but when the logic is locally within the service
+	 it works fine.
+	 
+	 Not sure if some other caching configuration class has been enabled or not.
+	 
 
 2.caching-component
   =================
