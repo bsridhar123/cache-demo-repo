@@ -1,0 +1,6 @@
+cacheEnabled: true    
+caches: quotes,books
+clientMode: true
+quotesCacheEnabled: true
+booksCacheEnabled: true   
+  

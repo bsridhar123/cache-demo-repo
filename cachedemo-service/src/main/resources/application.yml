@@ -1,0 +1,14 @@
+logging:
+  level:
+    org.springframework: INFO
+  file: cachedemo.log
+
+spring.application.name: cache-demo
+
+server:
+  port: 5001
+management:
+  security:
+    enabled: false
+
+          

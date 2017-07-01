@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: configuration-service
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///F:/sridhar/hello-repo
+
+  profiles:
+    active: native
