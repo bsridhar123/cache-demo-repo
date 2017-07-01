@@ -1,5 +1,6 @@
 package com.demo.autoconfigure;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,13 +11,13 @@ import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
+import org.springframework.cache.concurrent.ConcurrentMapCache;
 import org.springframework.cache.support.NoOpCacheManager;
+import org.springframework.cache.support.SimpleCacheManager;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-
 
 @Configuration
 @EnableCaching
@@ -25,7 +26,6 @@ import org.springframework.context.annotation.Primary;
 public class MyCustomCacheConfig {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(MyCustomCacheConfig.class);
-
 
 	/* Flag to Determine if Cache should be Enabled or not for the service */
 	@Value("${cacheEnabled}")
@@ -40,25 +40,30 @@ public class MyCustomCacheConfig {
 	@RefreshScope
 	CacheManager cacheManager() {
 
-		
-		
-		//If Cache is Enabled then swap the cacheManager for ConcurrentMapCacheManager
+		// If Cache is Enabled then swap the cacheManager for
+		// SimpleCacheManager with a ConcurrentMapCache
 		if (cacheEnabled) {
 			LOGGER.info("Cache is ENABLED...");
-			LOGGER.info("Plugging-in ConcurrentMapCacheManager...");
+			LOGGER.info("Plugging-in SimpleCacheManager...");
 			List<String> cacheNameList = Arrays.asList(caches.split(","));
-			CacheManager cacheManager = new ConcurrentMapCacheManager(cacheNameList.toArray(new String[cacheNameList.size()]));
+			LOGGER.info("cacheNameList...:" + cacheNameList.toString());
+			SimpleCacheManager cacheManager = new SimpleCacheManager();
+
+			List<ConcurrentMapCache> conMapList = new ArrayList<>();
+			for (int i = 0; i < cacheNameList.size(); i++) {
+				conMapList.add(new ConcurrentMapCache(cacheNameList.get(i)));
+			}
+
+			cacheManager.setCaches(conMapList);
+
 			return cacheManager;
-		}else{
+		} else {
 			LOGGER.info("Cache is DISABLED...");
 			LOGGER.info("Plugging-in NoOpCacheManager...");
 			CacheManager cacheManager = new NoOpCacheManager();
 			return cacheManager;
 		}
-		
-		
-	}
 
-	
+	}
 
 }
