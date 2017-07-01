@@ -9,7 +9,7 @@ This repository consists of the below projects/folders.
 	 a dependency on "caching-component" library for caching behaviour.
 	
 	-When "Caching" is turned on, the responses of its API Endpoints will be cached using 
-	 the cacheManager used by the "common-new" library.
+	 the cacheManager used by the "caching-component" library.
 	
 	-The "cacheEnabled" property is used to determine if Caching behaviour is turned on or not 
 	 for the Service. it is managed by Spring Cloud Config Service using a native profile in a file system folder.
