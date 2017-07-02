@@ -13,32 +13,32 @@ public class SimpleService {
 
 	private static final Logger logger = LoggerFactory.getLogger(SimpleService.class);
 
-	@Value("${membersCacheEnabled}")
-	private boolean membersCacheEnabled;
+	@Value("${customerCacheEnabled}")
+	private boolean customerCacheEnabled;
 
-	public boolean getMembersCacheEnabled() {
-		logger.info("membersCacheEnabled" + membersCacheEnabled);
-		return membersCacheEnabled;
+	public boolean getCustomerCacheEnabled() {
+		logger.info("customerCacheEnabled" + customerCacheEnabled);
+		return customerCacheEnabled;
 	}
 
-	@Cacheable(value = "enrollments")
-	public String getByEnrollmentNo(String enrNo) {
-		logger.info("Inside getByEnrollmentNo in SimpleService");
+	@Cacheable(value = "employee")
+	public String getByEmployeeNo(String empNo) {
+		logger.info("Inside getByEmployeeNo in SimpleService");
 		simulateSlowService();
-		return "Enrollment:" + enrNo;
+		return "Employee:" + empNo;
 	}
 
-	@Cacheable(value = "plans")
-	public String getByPlanNo(String planNo) {
-		logger.info("Inside getByPlanNo in SimpleService");
+	@Cacheable(value = "department")
+	public String getByDepartmentNo(String departmentNo) {
+		logger.info("Inside getByDepartmentNo in SimpleService");
 		simulateSlowService();
-		return "Plan:" + planNo;
+		return "Department:" + departmentNo;
 	}
-	@Cacheable(value = "members", condition = "#root.target.membersCacheEnabled==true")
-	public String getMembersByNo(String memberNo) {
-		logger.info("Inside getMembersByNo in SimpleService");
+	@Cacheable(value = "customer", condition = "#root.target.customersCacheEnabled==true")
+	public String getCustomerByCustomerNo(String customerNo) {
+		logger.info("Inside getCustomerByCustomerNo in SimpleService");
 		simulateSlowService();
-		return "Member:" + memberNo;
+		return "Customer:" + customerNo;
 	}
 
 	private void simulateSlowService() {

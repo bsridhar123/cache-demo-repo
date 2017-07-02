@@ -19,32 +19,32 @@ public class CacheDemoController {
 	}
 
 	
-	@GetMapping("/enrollment")
-	public void getByEnrollmentNo(){
-		logger.info("enrollment-12 -->" + simpleService.getByEnrollmentNo("12"));
-		logger.info("enrollment-12 -->" + simpleService.getByEnrollmentNo("12"));
-		logger.info("enrollment-22 -->" + simpleService.getByEnrollmentNo("22"));
-		logger.info("enrollment-12 -->" + simpleService.getByEnrollmentNo("12"));
-		logger.info("enrollment-12 -->" + simpleService.getByEnrollmentNo("12"));
-		logger.info("enrollment-22 -->" + simpleService.getByEnrollmentNo("22"));
+	@GetMapping("/employee")
+	public void getByEmployeeNo(){
+		logger.info("employee-12 -->" + simpleService.getByEmployeeNo("12"));
+		logger.info("employee-12 -->" + simpleService.getByEmployeeNo("12"));
+		logger.info("employee-22 -->" + simpleService.getByEmployeeNo("22"));
+		logger.info("employee-12 -->" + simpleService.getByEmployeeNo("12"));
+		logger.info("employee-12 -->" + simpleService.getByEmployeeNo("12"));
+		logger.info("employee-22 -->" + simpleService.getByEmployeeNo("22"));
 	}
 	
 	
-	@GetMapping("/member")
+	@GetMapping("/department")
 	public void getMembersByNo(){
-		logger.info("member-25 -->" + simpleService.getMembersByNo("25"));
-		logger.info("member-26 -->" + simpleService.getMembersByNo("26"));
-		logger.info("member-27 -->" + simpleService.getMembersByNo("27"));
-		logger.info("member-25 -->" + simpleService.getMembersByNo("25"));
-		logger.info("member-26 -->" + simpleService.getMembersByNo("26"));
+		logger.info("department-25 -->" + simpleService.getByDepartmentNo("25"));
+		logger.info("department-26 -->" + simpleService.getByDepartmentNo("26"));
+		logger.info("department-27 -->" + simpleService.getByDepartmentNo("27"));
+		logger.info("department-25 -->" + simpleService.getByDepartmentNo("25"));
+		logger.info("department-26 -->" + simpleService.getByDepartmentNo("26"));
 	}
 	
-	@GetMapping("/plan")
-	public void getByPlanNo(){
-		logger.info("plan-25 -->" + simpleService.getByPlanNo("25"));
-		logger.info("plan-26 -->" + simpleService.getByPlanNo("26"));
-		logger.info("plan-27 -->" + simpleService.getByPlanNo("27"));
-		logger.info("plan-25 -->" + simpleService.getByPlanNo("25"));
-		logger.info("plan-26 -->" + simpleService.getByPlanNo("26"));
+	@GetMapping("/customer")
+	public void getCustomerByCustomerNo(){
+		logger.info("customer-25 -->" + simpleService.getCustomerByCustomerNo("25"));
+		logger.info("customer-26 -->" + simpleService.getCustomerByCustomerNo("26"));
+		logger.info("customer-27 -->" + simpleService.getCustomerByCustomerNo("27"));
+		logger.info("customer-25 -->" + simpleService.getCustomerByCustomerNo("25"));
+		logger.info("customer-26 -->" + simpleService.getCustomerByCustomerNo("26"));
 	}
 }
