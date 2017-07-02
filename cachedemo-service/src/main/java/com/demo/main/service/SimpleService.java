@@ -13,26 +13,32 @@ public class SimpleService {
 
 	private static final Logger logger = LoggerFactory.getLogger(SimpleService.class);
 
-	@Value("${booksCacheEnabled}")
-	private boolean booksCacheEnabled;
+	@Value("${membersCacheEnabled}")
+	private boolean membersCacheEnabled;
 
-	public boolean getBooksCacheEnabled() {
-		logger.info("booksCacheEnabled" + booksCacheEnabled);
-		return booksCacheEnabled;
+	public boolean getMembersCacheEnabled() {
+		logger.info("membersCacheEnabled" + membersCacheEnabled);
+		return membersCacheEnabled;
 	}
 
-	@Cacheable(value = "quotes")
-	public String getByQuoteRefNo(String isbn) {
-		logger.info("Inside getByQuoteRefNo in SimpleBookRepository");
+	@Cacheable(value = "enrollments")
+	public String getByEnrollmentNo(String enrNo) {
+		logger.info("Inside getByEnrollmentNo in SimpleService");
 		simulateSlowService();
-		return "Quote:" + isbn;
+		return "Enrollment:" + enrNo;
 	}
 
-	@Cacheable(value = "books", condition = "#root.target.booksCacheEnabled==true")
-	public String getBookByNo(String bookno) {
-		logger.info("Inside getBookByNo in SimpleBookRepository");
+	@Cacheable(value = "plans")
+	public String getByPlanNo(String planNo) {
+		logger.info("Inside getByPlanNo in SimpleService");
 		simulateSlowService();
-		return "Book:" + bookno;
+		return "Plan:" + planNo;
+	}
+	@Cacheable(value = "members", condition = "#root.target.membersCacheEnabled==true")
+	public String getMembersByNo(String memberNo) {
+		logger.info("Inside getMembersByNo in SimpleService");
+		simulateSlowService();
+		return "Member:" + memberNo;
 	}
 
 	private void simulateSlowService() {

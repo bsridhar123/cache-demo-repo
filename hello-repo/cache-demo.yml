@@ -1,6 +1,47 @@
-cacheEnabled: true    
-caches: quotes,books
-clientMode: true
-quotesCacheEnabled: true
-booksCacheEnabled: true   
+#cacheEnabled: true    
+#caches: quotes,books
+#clientMode: true
+#booksCacheEnabled: false
+membersCacheEnabled: true
+
+
+
+configuration:
+  clientMode: true   
+  cacheEnabled: false
+  addresses: 
+  caches:
+    - name:              enrollments
+      cacheMode:         PARTITIONED
+      evictionPolicy:   
+        type:            RANDOM
+        maxSize:         1000000
+      expiryPolicy:      
+        type:            LAST_ACCESSED_TIME
+        duration:        15
+        TimeUnit:        MINUTES
+
+    - name:              plans
+      cacheMode:         PARTITIONED
+      evictionPolicy:   
+        type:            LRU
+        maxSize:         1000000
+      expiryPolicy:      
+        type:            LAST_ACCESSED_TIME
+        duration:        22
+        TimeUnit:        MINUTES
+    
+    - name:              members
+      cacheMode:         PARTITIONED
+      evictionPolicy:   
+        type:            RANDOM
+        maxSize:         1000000
+      expiryPolicy:      
+        type:            CREATION_TIME
+        duration:        2
+        TimeUnit:        HOUR
+
+
+    
+    
   

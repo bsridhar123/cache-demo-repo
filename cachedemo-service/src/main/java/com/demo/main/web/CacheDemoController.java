@@ -19,24 +19,32 @@ public class CacheDemoController {
 	}
 
 	
-	@GetMapping("/getQuotes")
-	public void getQuotes(){
-		logger.info("quote-12 -->" + simpleService.getByQuoteRefNo("12"));
-		logger.info("quote-12 -->" + simpleService.getByQuoteRefNo("12"));
-		logger.info("quote-22 -->" + simpleService.getByQuoteRefNo("22"));
-		logger.info("quote-12 -->" + simpleService.getByQuoteRefNo("12"));
-		logger.info("quote-12 -->" + simpleService.getByQuoteRefNo("12"));
-		logger.info("quote-22 -->" + simpleService.getByQuoteRefNo("22"));
+	@GetMapping("/enrollment")
+	public void getByEnrollmentNo(){
+		logger.info("enrollment-12 -->" + simpleService.getByEnrollmentNo("12"));
+		logger.info("enrollment-12 -->" + simpleService.getByEnrollmentNo("12"));
+		logger.info("enrollment-22 -->" + simpleService.getByEnrollmentNo("22"));
+		logger.info("enrollment-12 -->" + simpleService.getByEnrollmentNo("12"));
+		logger.info("enrollment-12 -->" + simpleService.getByEnrollmentNo("12"));
+		logger.info("enrollment-22 -->" + simpleService.getByEnrollmentNo("22"));
 	}
 	
 	
-	@GetMapping("/getBooks")
-	public void getBooks(){
-		logger.info("isbn-25 -->" + simpleService.getBookByNo("25"));
-		logger.info("isbn-26 -->" + simpleService.getBookByNo("26"));
-		logger.info("isbn-27 -->" + simpleService.getBookByNo("27"));
-		logger.info("isbn-25 -->" + simpleService.getBookByNo("25"));
-		logger.info("isbn-26 -->" + simpleService.getBookByNo("26"));
+	@GetMapping("/member")
+	public void getMembersByNo(){
+		logger.info("member-25 -->" + simpleService.getMembersByNo("25"));
+		logger.info("member-26 -->" + simpleService.getMembersByNo("26"));
+		logger.info("member-27 -->" + simpleService.getMembersByNo("27"));
+		logger.info("member-25 -->" + simpleService.getMembersByNo("25"));
+		logger.info("member-26 -->" + simpleService.getMembersByNo("26"));
 	}
 	
+	@GetMapping("/plan")
+	public void getByPlanNo(){
+		logger.info("plan-25 -->" + simpleService.getByPlanNo("25"));
+		logger.info("plan-26 -->" + simpleService.getByPlanNo("26"));
+		logger.info("plan-27 -->" + simpleService.getByPlanNo("27"));
+		logger.info("plan-25 -->" + simpleService.getByPlanNo("25"));
+		logger.info("plan-26 -->" + simpleService.getByPlanNo("26"));
+	}
 }

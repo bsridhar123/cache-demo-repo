@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.demo.autoconfigure.MyCustomCacheConfig
+com.demo.autoconfigure.SimpleCacheConfig,com.demo.autoconfigure.IgniteCacheConfig,com.demo.autoconfigure.config.cache.CacheConfig
