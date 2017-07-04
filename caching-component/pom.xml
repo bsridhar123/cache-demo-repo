@@ -16,10 +16,6 @@
 	<dependencies>
 
 
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency> -->
 
 		<!-- Dependency for Spring Boot Actustor support to refresh application 
 			configuration -->
@@ -69,7 +65,10 @@
 		</dependency>
 		
 		<!-- Dependencies for Apache Ignite -->
-
+<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
 
 	</dependencies>
 
@@ -87,7 +86,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
-		<ignite.version>2.0.0</ignite.version>
+		<ignite.version>1.7.0</ignite.version>
 		<spring.cloud.config.version>1.3.1.RELEASE</spring.cloud.config.version>
 	</properties>
 
